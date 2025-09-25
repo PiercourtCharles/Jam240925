@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool IsDead = false;
+
     [SerializeField] Vector2 _inputs;
     [SerializeField] bool _inputJump;
     [SerializeField] Rigidbody2D _rb;
@@ -70,6 +72,9 @@ public class PlayerController : MonoBehaviour
 
     void JumpInput(InputAction.CallbackContext context)
     {
+        if (IsDead)
+            return;
+
         _inputJump = true;
         _timerSinceJumpPressed = 0;
     }
@@ -81,6 +86,13 @@ public class PlayerController : MonoBehaviour
 
     void MoveInput(InputAction.CallbackContext context)
     {
+        if (IsDead)
+        {
+            _inputs = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         _inputs = new Vector2(context.ReadValue<float>(), 0);
     }
     #endregion Inputs
