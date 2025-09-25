@@ -1,0 +1,361 @@
+fileFormatVersion: 2
+guid: beebee0f6419f3c46bf19dd9f45a1fc1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7316924788236010674
+    second: player_deth_0
+  - first:
+      213: -7454701731417561039
+    second: player_deth_1
+  - first:
+      213: -7721925636683881428
+    second: player_deth_2
+  - first:
+      213: -9035906547064585256
+    second: player_deth_3
+  - first:
+      213: -6657258980787224993
+    second: player_deth_4
+  - first:
+      213: 8967696193938194515
+    second: player_deth_5
+  - first:
+      213: 7372762075203367608
+    second: player_deth_6
+  - first:
+      213: -8304126473434837542
+    second: player_deth_7
+  - first:
+      213: -3136372248639436814
+    second: player_deth_8
+  - first:
+      213: -1012485776445926519
+    second: player_deth_9
+  - first:
+      213: -1705021339220112671
+    second: player_deth_10
+  - first:
+      213: -6992882951918384541
+    second: player_deth_11
+  - first:
+      213: 2157392557579503555
+    second: player_deth_12
+  - first:
+      213: 258546928097644656
+    second: player_deth_13
+  - first:
+      213: -6418455453265897631
+    second: player_deth_14
+  - first:
+      213: -7924051568648757599
+    second: player_deth_15
+  - first:
+      213: -1362885063591772153
+    second: player_deth_16
+  - first:
+      213: 8552073465202948059
+    second: player_deth_17
+  - first:
+      213: -579361205833623977
+    second: player_deth_18
+  - first:
+      213: 1407334811429725175
+    second: player_deth_19
+  - first:
+      213: -1162399720183435128
+    second: player_deth_20
+  - first:
+      213: 6588485338836544560
+    second: player_deth_21
+  - first:
+      213: -1441769355540715581
+    second: player_deth_22
+  - first:
+      213: 5431632319633752238
+    second: player_deth_23
+  - first:
+      213: -4768394468600093373
+    second: player_deth_24
+  - first:
+      213: 926411948113072004
+    second: player_deth_25
+  - first:
+      213: 5134372967177299688
+    second: player_deth_26
+  - first:
+      213: 1160377636282922805
+    second: player_deth_27
+  - first:
+      213: -7736566936146071177
+    second: player_deth_28
+  - first:
+      213: 2233890153892088912
+    second: player_deth_29
+  - first:
+      213: 2803514474069814504
+    second: player_deth_30
+  - first:
+      213: -5567605147513324928
+    second: player_deth_31
+  - first:
+      213: -1386192365611057222
+    second: player_deth_32
+  - first:
+      213: 6026623994124450251
+    second: player_deth_33
+  - first:
+      213: 4323937889355440667
+    second: player_deth_34
+  - first:
+      213: -7437013607703498247
+    second: player_deth_35
+  - first:
+      213: 7580982887111204849
+    second: player_deth_36
+  - first:
+      213: -4660089952464699477
+    second: player_deth_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player_deth_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 121
+        width: 114
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83fd1b62525215244b7747d1b8da784d
+      internalID: -861435134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_deth_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 121
+        width: 114
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733c32074320cb540b880de05828866d
+      internalID: -1986895006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_deth_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 121
+        width: 114
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200a3d30fcf5f6c4f895aa9d963d0c2f
+      internalID: -1498314705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_deth_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 114
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2976737e34306a046a77c5a467c4b159
+      internalID: -931359391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_deth_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 114
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d1a3aecfcfa5549afa0f5bd0ccc313
+      internalID: -597175299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 56465b09521864d43971f107116b5172
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":114.0,"y":121.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      player_deth_0: -861435134
+      player_deth_1: -1986895006
+      player_deth_2: -1498314705
+      player_deth_3: -931359391
+      player_deth_4: -597175299
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
