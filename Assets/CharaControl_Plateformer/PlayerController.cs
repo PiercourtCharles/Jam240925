@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public bool IsDead = false;
+    public bool CanGrapple = false;
+    [SerializeField] Grapple _grapple;
+    [SerializeField] bool _isGrab = false;
 
     [SerializeField] Vector2 _inputs;
     [SerializeField] bool _inputJump;
@@ -60,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _playerInputs.Player.Move.performed += MoveInput;
         _playerInputs.Player.Jump.started += JumpInput;
         _playerInputs.Player.Jump.canceled += JumpInputCanceled;
+        _playerInputs.Player.Interact.started += InteractInput;
     }
 
     private void OnDisable()
@@ -68,6 +72,16 @@ public class PlayerController : MonoBehaviour
         _playerInputs.Player.Move.performed -= MoveInput;
         _playerInputs.Player.Jump.started -= JumpInput;
         _playerInputs.Player.Jump.canceled -= JumpInputCanceled;
+        _playerInputs.Player.Interact.started -= InteractInput;
+    }
+
+    void InteractInput(InputAction.CallbackContext context)
+    {
+        _isGrab = !_isGrab;
+        if (!_grapple.Grab(_isGrab))
+            _isGrab = !_isGrab;
+
+        Debug.Log("Yes");
     }
 
     void JumpInput(InputAction.CallbackContext context)
@@ -93,7 +107,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        _inputs = new Vector2(context.ReadValue<float>(), 0);
+        _inputs = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);
     }
     #endregion Inputs
 
