@@ -13,7 +13,7 @@ public class Bumper : MonoBehaviour
         if (controller != null)
         {
             var rb = controller.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = Vector2.zero;
+            //rb.linearVelocity = Vector2.zero;
 
             rb.AddForce(_direction * _power, ForceMode2D.Impulse);
         }
