@@ -4,9 +4,9 @@ public class Block : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rb;
 
-    public void Drop()
+    public void Drop(bool value)
     {
-        if (_rb.bodyType == RigidbodyType2D.Dynamic)
+        if (value)
             _rb.bodyType = RigidbodyType2D.Kinematic;
         else
             _rb.bodyType = RigidbodyType2D.Dynamic;
