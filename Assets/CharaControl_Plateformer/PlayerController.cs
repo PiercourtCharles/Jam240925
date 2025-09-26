@@ -36,14 +36,16 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Gravity otherwise")] public float Gravity;
     [SerializeField] float _jumpInputTimer = 0.1f;
 
-
+    [Header("")]
     [SerializeField] bool _isGrounded;
     [SerializeField] float _timerNoJump;
     [SerializeField] float _timerSinceJumpPressed;
     [SerializeField] float _TimeSinceGrounded;
+    [Header("")]
     [SerializeField] float _coyoteTime;
     [SerializeField] float _slopeDetectOffset;
     [SerializeField] bool _isOnSlope;
+    [Header("")]
     [SerializeField] Collider2D _collider;
     [SerializeField] PhysicsMaterial2D _physicsFriction;
     [SerializeField] PhysicsMaterial2D _physicsNoFriction;
@@ -155,10 +157,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 point = transform.position + Vector3.up * _groundOffset;
         bool currentGrounded = Physics2D.OverlapCircleNonAlloc(point, _groundRadius, _collidersGround, _GroundLayer) > 0;
+        _TimeSinceGrounded += Time.deltaTime;
 
         if (currentGrounded == false && _isGrounded)
         {
-            _TimeSinceGrounded += Time.deltaTime;
             _TimeSinceGrounded = 0;
         }
 
@@ -199,7 +201,7 @@ public class PlayerController : MonoBehaviour
             _rb.gravityScale = Gravity;
         }
 
-        if (_inputJump && (_rb.linearVelocity.y <= 0 || _isOnSlope) && (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
+        if (_inputJump && /*(_rb.linearVelocity.y <= 0 || _isOnSlope) &&*/ (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
             _timerNoJump = _timerMinBetweenJump;

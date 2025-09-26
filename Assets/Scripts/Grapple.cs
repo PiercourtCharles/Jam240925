@@ -12,6 +12,7 @@ public class Grapple : MonoBehaviour
 
         if (grab != null)
         {
+            grab.Display(true);
             _target = grab.transform;
         }
     }
@@ -22,6 +23,7 @@ public class Grapple : MonoBehaviour
 
         if (grab != null)
         {
+            grab.Display(false);
             _target = null;
         }
     }
