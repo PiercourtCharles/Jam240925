@@ -121,6 +121,7 @@ MonoBehaviour:
   CanGrapple: 0
   GrabBonus: 0
   BlockBonus: 0
+  LaunchForce: 3
   GrabDisplay: {fileID: 9096617099056919854}
   _grapple: {fileID: 4634223167808016754}
   _isGrab: 0
@@ -184,7 +185,7 @@ GameObject:
   - component: {fileID: 1073006544622798851}
   - component: {fileID: 5056654795604509285}
   - component: {fileID: 7326271297407861003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Excla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,8 +600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a1ff90084d5f4196213ab937ff361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
   _distantJoint: {fileID: 8898017900539988844}
-  _target: {fileID: 0}
 --- !u!1 &7127818157338244491
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8049761422374654265}
   - component: {fileID: 134874175757927172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

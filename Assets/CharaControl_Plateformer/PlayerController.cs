@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool CanGrapple = false;
     public bool GrabBonus = false;
     public bool BlockBonus = false;
+    public float LaunchForce = 1;
     public GameObject GrabDisplay;
     [SerializeField] Grapple _grapple;
     [SerializeField] bool _isGrab = false;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     void InteractInput(InputAction.CallbackContext context)
     {
-        if (GrabBonus || _isGrab)
+        if ((GrabBonus && _grapple.Target != null) || _isGrab)
         {
             _isGrab = !_isGrab;
             if (!_grapple.Grab(_isGrab))
@@ -97,14 +98,14 @@ public class PlayerController : MonoBehaviour
             {
                 GrabBonus = false;
                 GrabDisplay.SetActive(false);
+                _rb.AddForce(Vector2.right * _inputs.x * LaunchForce, ForceMode2D.Impulse);
             }
         }
-
-        if (BlockBonus)
+        else if (BlockBonus)
         {
             if (Block.gameObject.activeSelf)
             {
-                Block.Drop();
+                Block.Drop(false);
                 BlockBonus = false;
             }
         }
@@ -157,6 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 point = transform.position + Vector3.up * _groundOffset;
         bool currentGrounded = Physics2D.OverlapCircleNonAlloc(point, _groundRadius, _collidersGround, _GroundLayer) > 0;
+
         _TimeSinceGrounded += Time.deltaTime;
 
         if (currentGrounded == false && _isGrounded)

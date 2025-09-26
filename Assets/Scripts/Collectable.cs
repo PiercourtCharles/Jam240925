@@ -20,7 +20,7 @@ public class Collectable : MonoBehaviour
             {
                 controller.Block.transform.position = controller.BlockInitPos.position;
                 controller.Block.transform.rotation = Quaternion.Euler(Vector3.zero);
-                controller.Block.Drop();
+                controller.Block.Drop(true);
                 controller.Block.gameObject.SetActive(true);
                 controller.BlockBonus = true;
             }

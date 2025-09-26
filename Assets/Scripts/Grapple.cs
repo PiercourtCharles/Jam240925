@@ -3,8 +3,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Grapple : MonoBehaviour
 {
+    public Transform Target;
     [SerializeField] DistanceJoint2D _distantJoint;
-    [SerializeField] Transform _target;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -13,7 +13,7 @@ public class Grapple : MonoBehaviour
         if (grab != null)
         {
             grab.Display(true);
-            _target = grab.transform;
+            Target = grab.transform;
         }
     }
 
@@ -24,18 +24,18 @@ public class Grapple : MonoBehaviour
         if (grab != null)
         {
             grab.Display(false);
-            _target = null;
+            Target = null;
         }
     }
 
     public bool Grab(bool value)
     {
-        if (_target == null)
+        if (Target == null)
             return false;
 
         if (value)
         {
-            _distantJoint.connectedAnchor = _target.position;
+            _distantJoint.connectedAnchor = Target.position;
             _distantJoint.enabled = true;
         }
         else
