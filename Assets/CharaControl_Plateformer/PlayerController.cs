@@ -1,12 +1,19 @@
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
     public bool IsDead = false;
     public bool CanGrapple = false;
+    public bool GrabBonus = false;
+    public bool BlockBonus = false;
+    public GameObject GrabDisplay;
     [SerializeField] Grapple _grapple;
     [SerializeField] bool _isGrab = false;
+    public Block Block;
+    public Transform BlockInitPos;
 
     [SerializeField] Vector2 _inputs;
     [SerializeField] bool _inputJump;
@@ -26,7 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _jumpForce;
     [SerializeField] float _velocityFallMin;
     [SerializeField][Tooltip("Gravity when the player goes up and press jump")] float _gravityUpJump;
-    [SerializeField][Tooltip("Gravity otherwise")] float _gravity;
+    [Tooltip("Gravity otherwise")] public float Gravity;
     [SerializeField] float _jumpInputTimer = 0.1f;
 
 
@@ -55,6 +62,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _playerInputs = new Plateform();
+        Block.gameObject.SetActive(false);
+        GrabDisplay.SetActive(false);
     }
 
     private void OnEnable()
@@ -77,11 +86,26 @@ public class PlayerController : MonoBehaviour
 
     void InteractInput(InputAction.CallbackContext context)
     {
-        _isGrab = !_isGrab;
-        if (!_grapple.Grab(_isGrab))
+        if (GrabBonus || _isGrab)
+        {
             _isGrab = !_isGrab;
+            if (!_grapple.Grab(_isGrab))
+                _isGrab = !_isGrab;
+            else
+            {
+                GrabBonus = false;
+                GrabDisplay.SetActive(false);
+            }
+        }
 
-        Debug.Log("Yes");
+        if (BlockBonus)
+        {
+            if (Block.gameObject.activeSelf)
+            {
+                Block.Drop();
+                BlockBonus = false;
+            }
+        }
     }
 
     void JumpInput(InputAction.CallbackContext context)
@@ -129,13 +153,12 @@ public class PlayerController : MonoBehaviour
 
     void HandleGrounded()
     {
-        _TimeSinceGrounded += Time.deltaTime;
-
         Vector2 point = transform.position + Vector3.up * _groundOffset;
         bool currentGrounded = Physics2D.OverlapCircleNonAlloc(point, _groundRadius, _collidersGround, _GroundLayer) > 0;
 
         if (currentGrounded == false && _isGrounded)
         {
+            _TimeSinceGrounded += Time.deltaTime;
             _TimeSinceGrounded = 0;
         }
 
@@ -164,16 +187,16 @@ public class PlayerController : MonoBehaviour
         {
             if (_rb.linearVelocity.y < 0)
             {
-                _rb.gravityScale = _gravity;
+                _rb.gravityScale = Gravity;
             }
             else
             {
-                _rb.gravityScale = _inputJump ? _gravityUpJump : _gravity;
+                _rb.gravityScale = _inputJump ? _gravityUpJump : Gravity;
             }
         }
         else
         {
-            _rb.gravityScale = _gravity;
+            _rb.gravityScale = Gravity;
         }
 
         if (_inputJump && (_rb.linearVelocity.y <= 0 || _isOnSlope) && (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
@@ -185,20 +208,20 @@ public class PlayerController : MonoBehaviour
 
     void HandleSlope()
     {
-        Vector3 origin = transform.position + Vector3.up * _groundOffset;
-        bool slopeRight = Physics2D.RaycastNonAlloc(origin, Vector2.right, _hitResults, _slopeDetectOffset, _GroundLayer) > 0;
-        bool slopeLeft = Physics2D.RaycastNonAlloc(origin, -Vector2.right, _hitResults, _slopeDetectOffset, _GroundLayer) > 0;
+        //Vector3 origin = transform.position + Vector3.up * _groundOffset;
+        //bool slopeRight = Physics2D.RaycastNonAlloc(origin, Vector2.right, _hitResults, _slopeDetectOffset, _GroundLayer) > 0;
+        //bool slopeLeft = Physics2D.RaycastNonAlloc(origin, -Vector2.right, _hitResults, _slopeDetectOffset, _GroundLayer) > 0;
 
-        _isOnSlope = (slopeRight || slopeLeft) && (slopeRight == false || slopeLeft == false);
+        //_isOnSlope = (slopeRight || slopeLeft) && (slopeRight == false || slopeLeft == false);
 
-        if (Mathf.Abs(_inputs.x) < 0.1f && (slopeLeft || slopeRight))
-        {
-            _collider.sharedMaterial = _physicsFriction;
-        }
-        else
-        {
-            _collider.sharedMaterial = _physicsNoFriction;
-        }
+        //if (Mathf.Abs(_inputs.x) < 0.1f && (slopeLeft || slopeRight))
+        //{
+        //    _collider.sharedMaterial = _physicsFriction;
+        //}
+        //else
+        //{
+        //    _collider.sharedMaterial = _physicsNoFriction;
+        //}
     }
 
     void HandleCorners()
