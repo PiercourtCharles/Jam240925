@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
             _rb.gravityScale = Gravity;
         }
 
-        if (_inputJump && /*(_rb.linearVelocity.y <= 0 || _isOnSlope) &&*/ (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
+        if (_inputJump && (_rb.linearVelocity.y <= 0 /*|| _isOnSlope*/) && (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
             _timerNoJump = _timerMinBetweenJump;
