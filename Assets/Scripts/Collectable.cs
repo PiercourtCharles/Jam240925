@@ -23,11 +23,18 @@ public class Collectable : MonoBehaviour
                 controller.Block.Drop(true);
                 controller.Block.gameObject.SetActive(true);
                 controller.BlockBonus = true;
+
+                controller.GrabDisplay.SetActive(false);
+                controller.GrabBonus = false;
             }
             else if (_type == Type.Interro)
             {
                 controller.GrabDisplay.SetActive(true);
                 controller.GrabBonus = true;
+
+                controller.Block.Drop(false);
+                controller.Block.gameObject.SetActive(false);
+                controller.BlockBonus = false;
             }
 
             this.gameObject.SetActive(false);
