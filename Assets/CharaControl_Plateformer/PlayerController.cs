@@ -1,4 +1,5 @@
 using Unity.Android.Gradle.Manifest;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.UI.Image;
@@ -6,6 +7,7 @@ using static UnityEngine.UI.Image;
 public class PlayerController : MonoBehaviour
 {
     public CheckPoint Respawn;
+    public SoundManager Sounds;
     public bool IsDead = false;
     public bool CanGrapple = false;
     public bool GrabBonus = false;
@@ -94,7 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             _isGrab = !_isGrab;
             if (!_grapple.Grab(_isGrab))
+            {
+                Sounds.Grab();
                 _isGrab = !_isGrab;
+            }
             else
             {
                 GrabBonus = false;
@@ -168,6 +173,11 @@ public class PlayerController : MonoBehaviour
             _TimeSinceGrounded = 0;
         }
 
+        if (_isGrounded && _inputs.x != 0)
+            Sounds.Walk(true);
+        else
+            Sounds.Walk(false);
+
         _isGrounded = currentGrounded;
     }
 
@@ -207,6 +217,7 @@ public class PlayerController : MonoBehaviour
 
         if (_inputJump && /*(_rb.linearVelocity.y <= 0 || _isOnSlope) &&*/ (_isGrounded || _TimeSinceGrounded < _coyoteTime) && _timerNoJump <= 0 && _timerSinceJumpPressed < _jumpInputTimer)
         {
+            Sounds.Jump();
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
             _timerNoJump = _timerMinBetweenJump;
         }
@@ -265,6 +276,7 @@ public class PlayerController : MonoBehaviour
     {
         if (IsDead)
         {
+            Sounds.Dead();
             transform.position = Respawn.transform.position;
             IsDead = false;
         }

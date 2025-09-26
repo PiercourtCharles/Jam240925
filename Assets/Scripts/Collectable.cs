@@ -37,6 +37,7 @@ public class Collectable : MonoBehaviour
                 controller.BlockBonus = false;
             }
 
+            controller.Sounds.Spawn();
             this.gameObject.SetActive(false);
         }
     }

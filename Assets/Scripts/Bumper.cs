@@ -14,6 +14,7 @@ public class Bumper : MonoBehaviour
         {
             var rb = controller.GetComponent<Rigidbody2D>();
             //rb.linearVelocity = Vector2.zero;
+            controller.Sounds.Bumper();
 
             rb.AddForce(_direction * _power, ForceMode2D.Impulse);
         }
