@@ -5,6 +5,7 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
+    public CheckPoint Respawn;
     public bool IsDead = false;
     public bool CanGrapple = false;
     public bool GrabBonus = false;
@@ -145,6 +146,7 @@ public class PlayerController : MonoBehaviour
         HandleJump();
         HandleSlope();
         HandleCorners();
+        HandleDeath();
     }
 
     void HandleMovements()
@@ -256,6 +258,15 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void HandleDeath()
+    {
+        if (IsDead)
+        {
+            transform.position = Respawn.transform.position;
+            IsDead = false;
         }
     }
 }
